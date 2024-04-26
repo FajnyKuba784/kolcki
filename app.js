@@ -17,6 +17,21 @@ var config = {
     "height" : 100
 }
 
+var pole = {
+
+    "0": {"0":0,"1":0,"2":0,"3":0,"4":0},
+    "1": {"0":0,"1":0,"2":0,"3":0,"4":0},
+    "2": {"0":0,"1":0,"2":0,"3":0,"4":0},
+    "3": {"0":0,"1":0,"2":0,"3":0,"4":0},
+    "4": {"0":0,"1":0,"2":0,"3":0,"4":0}
+    
+}
+
+var l1 = 2
+var l2 = 2
+if(pole[l1-1][l2]==1){
+    gora.style.backgroundColor = "blue"
+}
 gora.addEventListener("click",()=>{
 
     dodgora(config.x,config.y,config.width,config.height)
@@ -49,12 +64,13 @@ function dod(x,y,width,height){
 
     svg.appendChild(kwadrat)
 
-  
+    pole[l1][l2]=1
 
 }
 
 function dodgora(x,y,width,height){
-        
+        l1 = l1-1
+
     let kwadrat = rc.rectangle(x,y-height-config.gap,width,height,{fill: 'rgba(200,0,0,0.50)', fillStyle:"solid"})
 
     svg.appendChild(kwadrat)
@@ -64,9 +80,12 @@ function dodgora(x,y,width,height){
     svg.appendChild(line)
 
     config.y = config.y - height - config.gap
+    pole[l1][l2]=1
+    
+console.log(pole[l1][l2])
 }
 function doddol(x,y,width,height){
-        
+        l1 = l1+1
     let kwadrat = rc.rectangle(x,y+height+config.gap,width,height,{fill: 'rgba(200,0,0,0.50)', fillStyle:"solid"})
 
     svg.appendChild(kwadrat)
@@ -76,28 +95,34 @@ function doddol(x,y,width,height){
     svg.appendChild(line)
 
     config.y = height + config.gap + config.y
+    pole[l1][l2]=1
+    console.log(pole[l1][l2])
 }
 function dodlewo(x,y,width,height){
-        
+    l2 = l2-1
     let kwadrat = rc.rectangle(x-width-config.gap,y,width,height,{fill: 'rgba(200,0,0,0.50)', fillStyle:"solid"})
 
     svg.appendChild(kwadrat)
 
-    let line = rc.line(x+width/2,y+height,x+width/2,y+height+config.gap)
+    let line = rc.line(x-config.gap,y+height/2,x,y+height/2)
 
     svg.appendChild(line)
 
     config.x = config.x - width - config.gap    
+    pole[l1][l2]=1
+    console.log(pole[l1][l2])
 }
 function dodprawo(x,y,width,height){
-        
-    let kwadrat = rc.rectangle(x,y,width,height,{fill: 'rgba(200,0,0,0.50)', fillStyle:"solid"})
+    l2 = l2+1  
+    let kwadrat = rc.rectangle(x+width+config.gap,y,width,height,{fill: 'rgba(200,0,0,0.50)', fillStyle:"solid"})
 
     svg.appendChild(kwadrat)
 
-    let line = rc.line(x+width/2,y+height,x+width/2,y+height+config.gap)
+    let line = rc.line(x+width+config.gap,y+height/2,x+width,y+height/2)
 
     svg.appendChild(line)
 
-    config.y = height + config.gap + config.y
+    config.x = width + config.gap + config.x
+    pole[l1][l2]=1
+    console.log(pole[l1][l2])
 }
