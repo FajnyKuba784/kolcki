@@ -1,18 +1,46 @@
-#svg{
+#divsvg{
 
-    height: 90vh;
+    height: 70vh;
     width: 100%;
 
 }
 #inter{
-    height: 10vh;
+    height: calc(30vh - 1px);
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0px;
+    border-top: 1px solid black;
 }
 body{
     margin: 0px;
     gap: 0px;
+    padding: 0px;
+}
+#srodek{
+    display: flex;
+}
+button{
+    height: 50px;
+    width: 50px;
+    font-size: xx-large;
+    margin-right: 50px;
+}
+.divy{
+    margin: 10px;
+}
+#dol{
+    margin-right: 30px;
+}
+#gora{
+    margin-right: 30px;
+}
+#lewo{
+    margin-left: 20px;
+}
+#svg{
+    height: 100%;
+    width: 100%;
 }
